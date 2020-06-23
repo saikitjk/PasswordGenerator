@@ -1,3 +1,15 @@
 .jumbotron h1{
     text-align: center; 
 }
+
+.form-control{
+    text-align: center; 
+}
+
+#innerJumbotron{
+    background-color: #ffffff;
+}
+
+.btn-danger{
+    border-radius: 30px;
+}
