@@ -16,8 +16,30 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 */
 
-var pwLength = prompt("Please decide the length of your password.")
 
-if (pwLength < 8 || pwLength > 128){
-    alert("You password length is " + pwLength + "please have at least 8 characters and no more than 128 characters")
+function generatePW(){
+
+    alert("Hi")
+    /*
+    var allCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+";
+    var shuffledCharacter = "";
+    var result = "";
+
+
+
+
+
+    var pwLength = prompt("Please decide the length of your password.")
+
+    if (pwLength < 8 || pwLength > 128){
+
+    }   
+
+    else{    
+        alert("You password length is " + pwLength + "please have at least 8 characters and no more than 128 characters")
+    }
+    */
+
 }
+
+
