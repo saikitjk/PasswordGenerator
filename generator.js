@@ -19,49 +19,53 @@ THEN the password is either displayed in an alert or written to the page
 //variables
 function generatePW(){
     var go;
-    var upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-    var lower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-    var num = ['0','1','2','3','4','5','6','7','8','9'];
-    var special = ['!','@','~','!','@','#','$','%','^','&','*','(',')','-','_','=','+'];
+    //var upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    var lower = "abcdefghijklmnopqrstuvwxyz"
+    var num = "0123456789"
+    var special = "!@~!@#$%^&*()-_=+";
+    
+    //var lower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    //var num = ['0','1','2','3','4','5','6','7','8','9'];
+    //var special = ['!','@','~','!','@','#','$','%','^','&','*','(',')','-','_','=','+'];
         //all = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@~!@#$%^&*()-_=+",
-    }
+    
 
-    var pwLength = ' ';
-    var randomPw = ' ';
+    //var pwLength = ' ';
+    var randomPw = '';
 
-
-
-
-
-        
 
 
     //Main
     while(go !== null){
 
-        go = prompt("Please decide the length of your password.");
-        pwlength = go
-
-
-        if (pwlength > 8 || pwlength < 128){
-
-            componentType = prompt("Type 'l'to include lowercase, 'u' to include uppercase, 'n' to include numeric, and/or 's' to include special characters").toLowerCase();
-
-            if (componentType === "l"){
-                for(var i = 0; i<pwLength; i++){
-                    randomPw += items[Math.floor(Math.random() * upper.length)];
-                    document.getElementById("FormControlTextarea").value = randomPw;
+        //go = prompt("Please decide the length of your password.");
+        //componentType = prompt("Type 'l'to include lowercase, 'u' to include uppercase, 'n' to include numeric, and/or 's' to include special characters");
+        var pwLength = 8;
+        var componentType = "s";
+        for (var i = 0; i < pwLength; i++){
+              if (componentType === "u"){
+                var pointer = Math.floor(Math.random() * upper.length);
+                randomPw += upper.substring(pointer, pointer+1);
+                console.log('pw= ' + randomPw);
                 }
-          
-            }
-            
-        }   
-
-        else{    
-            alert("You password length is " + pwlength + "please have at least 8 characters and no more than 128 characters")
+              else if (componentType === "l"){
+                var pointer = Math.floor(Math.random() * lower.length);
+                randomPw += lower.substring(pointer, pointer+1);
+                console.log('pw= ' + randomPw);
+                }
+              else if (componentType === "n"){
+                var pointer = Math.floor(Math.random() * num.length);
+                randomPw += num.substring(pointer, pointer+1);
+                console.log('pw= ' + randomPw);
+                }
+              else if (componentType === "s"){
+                var pointer = Math.floor(Math.random() * special.length);
+                randomPw += special.substring(pointer, pointer+1);
+                console.log('pw= ' + randomPw);
+                }
+                
         }
+         go = null;
     }
-
 }
-
-
