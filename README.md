@@ -33,7 +33,7 @@ https://saikitjk.github.io/PasswordGenerator/PWGenerator.html
 <img width="1220" alt="Screen Shot 2020-06-26 at 11 28 23 PM" src="https://user-images.githubusercontent.com/34286313/85916439-94dbc700-b805-11ea-83e2-ff34c0613761.png">
 
 
-# CreditS
+# Credits
 https://www.w3schools.com
 
 https://stackoverflow.com
