@@ -72,7 +72,7 @@ function generatePW(){
                       }
 
                 }
-                //console.log('unshuffled PW = ' + randomPw);
+                console.log('unshuffled PW = ' + randomPw);
                  function shuffle() {
                     var pwArray = randomPw.split('');
                      for (var i = pwArray.length; i > 0;) 
@@ -82,12 +82,14 @@ function generatePW(){
                             pwArray[i] = pwArray[pointer];
                             pwArray[pointer] = holder;
                             }
-                          return pwArray.join('');
+                          console.log('Final PW = ' +pwArray.join(''));
+                        
                         }
                         shuffle();
+                        
           
-                          //return randomPw
-                console.log('Final PW =' + pwArray)
+                         
+                
                 go = null;
             }
         else{
