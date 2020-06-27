@@ -14,17 +14,18 @@ function generatePW(){
     //Main
     while(go !== null){
 
-        //go = prompt("Please decide the length of your password (8 to 128).");
+        go = prompt("Please decide the length of your password (8 to 128).");
         
-        var go = 8;
+        //var go = 8;
         //var componentType = "s";
         if(go > 7 && go < 129){
             //componentType = prompt("Type 'l'to include lowercase, 'u' to include uppercase, 'n' to include numeric, and/or 's' to include special characters");
-            var isUpper = true;//confirm("Include uppercase characters?");
-            var isLower = true;//confirm("Include lowercase characters?");
-            var isNum = false;//confirm("Include numeric characters?");
-            var isSpecial = false;//confirm("Include special characters?");
+            var isUpper = confirm("Include uppercase characters?");
+            var isLower = confirm("Include lowercase characters?");
+            var isNum = confirm("Include numeric characters?");
+            var isSpecial = confirm("Include special characters?");
 
+            if(isLower === true || isUpper === true || isNum === true || isSpecial === true){
                 for (var i = 0; i < go;){
                     if (isUpper){
                       if (randomPw.length === go){
@@ -72,7 +73,7 @@ function generatePW(){
                       }
 
                 }
-                console.log('unshuffled PW = ' + randomPw);
+                //console.log('unshuffled PW = ' + randomPw);
                  function shuffle() {
                     var pwArray = randomPw.split('');
                      for (var i = pwArray.length; i > 0;) 
@@ -82,20 +83,34 @@ function generatePW(){
                             pwArray[i] = pwArray[pointer];
                             pwArray[pointer] = holder;
                             }
-                          console.log('Final PW = ' +pwArray.join(''));
+                          //console.log('Final PW = ' +pwArray.join(''));
+                          //function displayToForm()
+                          document.getElementById("FormControlTextarea").value = pwArray.join(''); 
+                        }//shuffle function close tag
                         
-                        }
+                        
                         shuffle();
-                        
-          
-                         
-                
-                go = null;
-            }
-        else{
+                        go = null;
+                    }//check user character choice input close tag
+                else{
+                    alert("Please pick at least one character type.")
+                }
+            }//check pwlength close tag
+        else if (go < 8 && go > 128){
             alert("Please choose a length of 8 to 128.")
-        }       
-    }
+        }  
+
+    }//while loop close tag
+}
+
+function toClipboard(){
+    //connect to text box
+    var copyForm = document.getElementById("FormControlTextarea");
+
+    //select the text box
+    copyForm.select();
+    document.execCommand("copy");
+    alert("Password " + copyForm.value + " has been copied to your clipboard." );
 }
 
 
