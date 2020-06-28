@@ -1,11 +1,10 @@
 //variables
 function generatePW(){
     var go;
-    var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    var lower = "abcdefghijklmnopqrstuvwxyz"
-    var num = "0123456789"
-    var special = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-
+    var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var lower = "abcdefghijklmnopqrstuvwxyz";
+    var num = "0123456789";
+    var special = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
     var randomPw = '';
 
@@ -14,12 +13,14 @@ function generatePW(){
     //Main
     while(go !== null){
 
-        go = prompt("Please decide the length of your password (8 to 128).");
+        go = parseInt(prompt("Please decide the length of your password (8 to 128)."));
         
-        //var go = 8;
-        //var componentType = "s";
+        
+        //var go = 9;
+        //console.log("go is " +  typeof go);
+   
         if(go > 7 && go < 129){
-            //componentType = prompt("Type 'l'to include lowercase, 'u' to include uppercase, 'n' to include numeric, and/or 's' to include special characters");
+            
             var isUpper = confirm("Include uppercase characters?");
             var isLower = confirm("Include lowercase characters?");
             var isNum = confirm("Include numeric characters?");
@@ -28,52 +29,52 @@ function generatePW(){
             if(isLower === true || isUpper === true || isNum === true || isSpecial === true){
                 for (var i = 0; i < go;){
                     if (isUpper){
-                      if (randomPw.length === go){
+                      if (i === go){
                       break;
                       }
                       else{
                         var pointer = Math.floor(Math.random() * upper.length);
                         randomPw += upper.substring(pointer, pointer+1);
                         i+=1;
-                        //console.log('pw= ' + randomPw);
+                        //console.log('pw= ' + randomPw + ' i is' + i);
                         }
                       }
                     if (isLower){
-                      if (randomPw.length === go){
+                      if (i=== go){
                       break;
                       }
                       else{
                         var pointer = Math.floor(Math.random() * lower.length);
                         randomPw += lower.substring(pointer, pointer+1);
-                        //console.log('pw= ' + randomPw);
+                        //console.log('pw= ' + randomPw + ' i is' + i);
                         i+=1;
                         }
                       }
                     if (isNum){
-                      if (randomPw.length === go){
+                      if (i === go){
                       break;
                       }
                       else{
                         var pointer = Math.floor(Math.random() * num.length);
                         randomPw += num.substring(pointer, pointer+1);
-                        //console.log('pw= ' + randomPw);
+                        //console.log('pw= ' + randomPw + ' i is' + i);
                         i+=1;
                         }
                       }
                     if (isSpecial){
-                      if (randomPw.length === go){
+                      if (i === go){
                       break;
                       }
                       else{
                         var pointer = Math.floor(Math.random() * special.length);
                         randomPw += special.substring(pointer, pointer+1);
-                        //console.log('pw= ' + randomPw);
+                        //console.log('pw= ' + randomPw + ' i is' + i);
                         i+=1;
                         }
                       }
 
                 }
-                //console.log('unshuffled PW = ' + randomPw);
+                console.log('unshuffled PW = ' + randomPw + ' i is' + i);
                  function shuffle() {
                     var pwArray = randomPw.split('');
                      for (var i = pwArray.length; i > 0;) 
@@ -84,7 +85,6 @@ function generatePW(){
                             pwArray[pointer] = holder;
                             }
                           //console.log('Final PW = ' +pwArray.join(''));
-                          //function displayToForm()
                           document.getElementById("FormControlTextarea").value = pwArray.join(''); 
                         }//shuffle function close tag
                         
@@ -131,71 +131,6 @@ WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
-
-
-
-
-//variables
-function generatePW(){
-    var go;
-    //var upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-    var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    var lower = "abcdefghijklmnopqrstuvwxyz"
-    var num = "0123456789"
-    var special = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-    
-    //var lower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-    //var num = ['0','1','2','3','4','5','6','7','8','9'];
-    //var special = ['!','@','~','!','@','#','$','%','^','&','*','(',')','-','_','=','+'];
-        //all = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@~!@#$%^&*()-_=+",
-    
-
-    var randomPw = '';
-
-
-
-    //Main
-    while(go !== null){
-
-        go = prompt("Please decide the length of your password (8 to 128).");
-        
-        //var go = 8;
-        //var componentType = "s";
-        if(go > 7 && go < 129){
-            //componentType = prompt("Type 'l'to include lowercase, 'u' to include uppercase, 'n' to include numeric, and/or 's' to include special characters");
-            var isUpper = confirm("Include uppercase characters?");
-            var isLower = confirm("Include lowercase characters?");
-            var isNum = confirm("Include numeric characters?");
-            var isSpecial = confirm("Include special characters?");
-
-                for (var i = 0; i < go; i++){
-                    if (isUpper){
-                        var pointer = Math.floor(Math.random() * upper.length);
-                        randomPw += upper.substring(pointer, pointer+1);
-                        //console.log('pw= ' + randomPw);
-                        }
-                    if (isLower){
-                        var pointer = Math.floor(Math.random() * lower.length);
-                        randomPw += lower.substring(pointer, pointer+1);
-                        //console.log('pw= ' + randomPw);
-                        }
-                    if (isNum){
-                        var pointer = Math.floor(Math.random() * num.length);
-                        randomPw += num.substring(pointer, pointer+1);
-                        //console.log('pw= ' + randomPw);
-                        }
-                    if (isSpecial){
-                        var pointer = Math.floor(Math.random() * special.length);
-                        randomPw += special.substring(pointer, pointer+1);
-                        //console.log('pw= ' + randomPw);
-                        }    
-                }
-                console.log('pw= ' + randomPw);
-                go = null;
-            }
-        else{
-            alert("Please choose a length of 8 to 128.")
-        }       
-    }
-}
 */
+
+
